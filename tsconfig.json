@@ -1,8 +1,17 @@
 {
   "include": [
     "./src/**/*",
-    "./test/**/*"
+    "./test/**/*",
+    "./build.ts",
+    "./build-derivates.ts"
   ],
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    // same as our --compilerOptions flag and our TS_NODE_COMPILER_OPTIONS environment variable
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "compilerOptions": {
     /* Basic Options */
     //    "incremental": true,
@@ -27,7 +36,7 @@
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
     "outDir": "./dist/esm",
     /* Redirect output structure to the directory. */
-    "rootDir": "./src",
+    "rootDir": ".",
     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
@@ -63,12 +72,6 @@
     "moduleResolution": "node",
     /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "baseUrl": "./",
-    /* Base directory to resolve non-absolute module names. */
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
     /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
