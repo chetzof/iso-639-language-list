@@ -2,7 +2,7 @@ import originalList from 'iso-639-3'
 import nativeNameList from 'iso-639/data/iso_639-1.json'
 import { outputFile } from 'fs-extra'
 import prettier from 'prettier'
-import speakers from 'speakers'
+import speakersRaw from 'speakers'
 import { join } from 'path'
 
 const rtl = [
@@ -23,6 +23,8 @@ const rtl = [
   'urd',
 ]
 
+const speakers = Object.assign(speakersRaw, { zho: speakersRaw.cmn })
+
 import { Language, LanguageDataset } from './src/models'
 import { hasKey } from './src/util'
 
@@ -34,7 +36,6 @@ export async function compile(languages: any, path: string): Promise<void> {
   })
   await outputFile(join('.', path), formattedOutput)
 }
-
 async function run(): Promise<void> {
   const dataset: LanguageDataset = (originalList as WoormyLanguage[]).map(
     (language) => {

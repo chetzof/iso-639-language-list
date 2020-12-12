@@ -55478,7 +55478,8 @@
     "iso6392T": "zho",
     "iso6391": "zh",
     "isRTL": false,
-    "nativeName": "中文 (Zhōngwén)"
+    "nativeName": "中文 (Zhōngwén)",
+    "speakers": 885000000
   },
   {
     "name": "Zhoa",
